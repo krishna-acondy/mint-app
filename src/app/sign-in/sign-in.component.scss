@@ -27,7 +27,7 @@
       border: none;
       border-radius: 3px;
       @include background-text;
-  
+
       &.error {
         animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
         background-color: $warn-color;
@@ -45,7 +45,7 @@
       }
     }
 
-    .login {
+    .sign-in {
       font-size: 1.5em;
       margin-top: 1em;
     }

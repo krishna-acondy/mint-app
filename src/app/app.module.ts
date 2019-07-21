@@ -9,14 +9,18 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './state';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { LoginComponent } from './login/login.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthEffects } from './state/auth';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    SignInComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

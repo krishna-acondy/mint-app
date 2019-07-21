@@ -1,18 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { Store } from '@ngrx/store';
-import { LoginComponent } from './login.component';
+import { SignInComponent } from './sign-in.component';
 import { initialAuthState } from '../state/auth';
 import { AppState } from '../state';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('SignInComponent', () => {
+  let component: SignInComponent;
+  let fixture: ComponentFixture<SignInComponent>;
   let store: MockStore<AppState>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [ SignInComponent ],
       providers: [
         provideMockStore({ initialState: { auth: initialAuthState } })
       ]
@@ -22,7 +22,7 @@ describe('LoginComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(SignInComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -43,11 +43,11 @@ describe('LoginComponent', () => {
     expect(component.pin).toEqual(5555);
   });
 
-  it('should reset auth state and authenticate when the login button is clicked', () => {
+  it('should reset auth state and authenticate when the sign in button is clicked', () => {
     const spy = spyOn(store, 'dispatch');
     component.pin = 1234;
 
-    component.onLoginClick();
+    component.onSignInClick();
 
     expect(spy).toHaveBeenCalledTimes(2);
     expect(spy).toHaveBeenCalledWith(

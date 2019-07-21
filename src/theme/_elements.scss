@@ -6,8 +6,14 @@
   color: $background-color;
 }
 
-@mixin secondary() {
-  background-color: $secondary-color;
+@mixin primary-transparent() {
+  background-color: transparent;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+}
+
+@mixin accent() {
+  background-color: $accent-color;
   color: $background-color;
 }
 
@@ -30,7 +36,11 @@
     @include primary;
   }
 
-  &.secondary {
-    @include secondary;
+  &.primary-transparent {
+    @include primary-transparent;
+  }
+
+  &.accent {
+    @include accent;
   }
 }

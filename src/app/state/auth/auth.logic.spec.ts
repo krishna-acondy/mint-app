@@ -6,7 +6,7 @@ describe('Auth Logic', () => {
     it('should log in successfully', () => {
         const state = cloneDeep(initialAuthState);
 
-        const newState = AuthLogic.login(state, 300);
+        const newState = AuthLogic.signIn(state, 300);
 
         expect(newState).not.toBe(state);
         expect(newState.isLoggedIn).toBeTruthy();

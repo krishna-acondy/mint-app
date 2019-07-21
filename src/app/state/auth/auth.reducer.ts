@@ -1,13 +1,17 @@
 import { createReducer, on } from '@ngrx/store';
 import { initialAuthState } from './auth.state';
-import { login, failAuthentication, resetAuthState } from './auth.actions';
+import { signIn, failAuthentication, resetAuthState, signOut } from './auth.actions';
 import { AuthLogic } from './auth.logic';
 
 export const authReducer = createReducer(
   initialAuthState,
   on(
-    login,
-    (state, action) => AuthLogic.login(state, action.currentBalance)
+    signIn,
+    (state, action) => AuthLogic.signIn(state, action.currentBalance)
+  ),
+  on(
+    signOut,
+    () => AuthLogic.signOut()
   ),
   on(
     failAuthentication,

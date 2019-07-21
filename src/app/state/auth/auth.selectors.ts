@@ -12,3 +12,8 @@ export const hasFailedAuth = createSelector(
   selectAuthState,
   state => state.hasFailedAuth
 )
+
+export const currentBalance = createSelector(
+  selectAuthState,
+  state => state.currentBalance
+)

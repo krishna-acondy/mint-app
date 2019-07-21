@@ -1,0 +1,28 @@
+@import '../../theme/colors';
+
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    padding: 0.25em 0.5em;
+    background-color: $accent-color;
+
+    .logo {
+        height: 100%;
+        width: 10%;
+        background: url('../../assets/logo.png') no-repeat;
+        background-size: 75%;
+        background-position: center left;
+    }
+
+    .button {
+      margin-left: auto;
+    }
+
+    @media only screen and (max-width: 1080px) {
+        .logo {
+          width: 30%;
+        }
+      }
+}

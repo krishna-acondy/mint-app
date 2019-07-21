@@ -1,0 +1,11 @@
+<mnt-header (signOut)='onSignOut()'></mnt-header>
+<div class='main-content'>
+    <h1 class='title'>Welcome, Michael!</h1>
+    You currently have <span class='amount'>{{ currentBalance$ | async | currency:'GBP' }}</span> in your account.
+    <br/>
+    You are officially <span class='bold'>mint-ed</span>!
+    <br/>
+    <button class='button primary'>
+        Withdraw cash
+    </button>
+</div>
