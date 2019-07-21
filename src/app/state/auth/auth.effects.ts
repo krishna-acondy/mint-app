@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthEffects {
-  readonly apiUrl = 'http://localhost:9999/api';
+  readonly apiUrl = 'https://mnt-api.herokuapp.com/api';
 
   @Effect()
   authenticate$ = this.actions$.pipe(

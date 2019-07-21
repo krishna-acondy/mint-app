@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './state';
+import { reducers, metaReducers, reducerToken, reducerProvider } from './state';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -27,7 +27,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    StoreModule.forRoot(reducers, {
+    StoreModule.forRoot(reducerToken, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
@@ -37,7 +37,9 @@ import { HeaderComponent } from './header/header.component';
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
-  providers: [],
+  providers: [
+    reducerProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
