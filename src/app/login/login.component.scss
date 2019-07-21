@@ -1,0 +1,88 @@
+@import '../../theme/colors';
+
+:host {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  .logo {
+    height: 30%;
+    width: 30%;
+    background: url('../../assets/logo.png') no-repeat;
+    background-size: 100%;
+  }
+
+  .pin-input {
+    margin: 3em 0 1em 0;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+    .pin-textbox {
+      padding: 0.5em;
+      margin: 0.5em 0;
+      font-size: 2em;
+      border: none;
+      border-radius: 3px;
+      @include background-text;
+  
+      &.error {
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        background-color: $warn-color;
+        @include text;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+      }
+    }
+
+    .message {
+      height: 1em;
+
+      &.warn {
+        height: 2em;
+      }
+    }
+
+    .login {
+      font-size: 1.5em;
+      margin-top: 1em;
+    }
+  }
+
+  @media only screen and (max-width: 1080px) {
+    .pin-input {
+      width: 80%;
+    }
+  }
+
+  @media only screen and (orientation: portrait) {
+    .pin-input {
+      margin: 0;
+    }
+  }
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
