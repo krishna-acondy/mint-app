@@ -1,0 +1,21 @@
+{
+  "name": "mock-pin-api",
+  "version": "1.0.0",
+  "description": "Mock PIN API",
+  "main": "src/server.ts",
+  "author": "Krishna Acondy",
+  "license": "ISC",
+  "scripts": {
+    "start": "./node_modules/.bin/ts-node ./src/server.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "@types/node": "^12.6.8",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
+}
