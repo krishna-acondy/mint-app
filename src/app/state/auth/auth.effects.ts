@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Effect, ofType, Actions } from '@ngrx/effects';
-import { switchMap, map, catchError } from 'rxjs/operators';
+import { switchMap, map, catchError, withLatestFrom } from 'rxjs/operators';
 import { authenticate, signIn, failAuthentication, signOut } from './auth.actions';
 import { Router } from '@angular/router';
+import { AppState } from '..';
+import { Store } from '@ngrx/store';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthEffects {
-  readonly apiUrl = 'https://mnt-api.herokuapp.com/api';
-
   @Effect()
   authenticate$ = this.actions$.pipe(
     ofType(authenticate),
-    switchMap(action => {
-      return this.httpClient.post(`${this.apiUrl}/pin`, {pin: action.pin})
+    withLatestFrom(this.store),
+    switchMap(([action, state]) => {
+      return this.httpClient.post(`${state.config.apiUrl}/pin`, {pin: action.pin})
         .pipe(
           map((response: any) => {
             if (response.currentBalance) {
@@ -39,6 +40,7 @@ export class AuthEffects {
 
     constructor(
       private actions$: Actions,
+      private store: Store<AppState>,
       private httpClient: HttpClient,
       private router: Router) {}
 }

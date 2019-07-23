@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from './state';
+import { configure } from './state/config';
 
 @Component({
   selector: 'mnt-root',
@@ -6,4 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private store: Store<AppState>) {
+    this.store.dispatch(configure({apiUrl: 'http://localhost:9999/api'}));
+  }
 }
