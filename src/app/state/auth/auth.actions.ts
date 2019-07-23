@@ -10,8 +10,7 @@ export const resetAuthState = createAction(
 );
 
 export const signIn = createAction(
-  '[Auth] Sign In',
-  props<{currentBalance: number}>()
+  '[Auth] Sign In'
 );
 
 export const signOut = createAction(

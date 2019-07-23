@@ -6,6 +6,7 @@ import { authenticate, signIn, failAuthentication, signOut } from './auth.action
 import { Router } from '@angular/router';
 import { AppState } from '..';
 import { Store } from '@ngrx/store';
+import { updateBalance } from '../cash';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,12 +18,12 @@ export class AuthEffects {
     switchMap(([action, state]) => {
       return this.httpClient.post(`${state.config.apiUrl}/pin`, {pin: action.pin})
         .pipe(
-          map((response: any) => {
+          switchMap((response: any) => {
             if (response.currentBalance) {
               this.router.navigateByUrl('/home');
-              return signIn(response as { currentBalance: number});
+              return [signIn(), updateBalance({amount: response.currentBalance})];
             } else {
-              return failAuthentication();
+              return [failAuthentication()];
             }
           }),
           catchError(() => [failAuthentication()])

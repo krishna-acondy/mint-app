@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../state';
-import { currentBalance, signOut } from '../state/auth';
+import { signOut } from '../state/auth';
+import { currentBalance, withdraw } from '../state/cash';
 
 @Component({
   selector: 'mnt-home',
@@ -17,6 +18,10 @@ export class HomeComponent {
 
   onSignOut() {
     this.store.dispatch(signOut());
+  }
+
+  withdraw(amount: number) {
+    this.store.dispatch(withdraw({amount}));
   }
 
 }

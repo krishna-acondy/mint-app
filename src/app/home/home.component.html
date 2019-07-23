@@ -4,8 +4,17 @@
     You currently have <span class='amount'>{{ currentBalance$ | async | currency:'GBP' }}</span> in your account.
     <br/>
     You are officially <span class='bold'>mint-ed</span>!
-    <br/>
-    <button class='button primary'>
-        Withdraw cash
-    </button>
+    <br/><br/>
+    How much would you like to withdraw?
+    <div class='withdrawal'>
+        <button class='button primary' (click)='withdraw(20)'>
+            £20
+        </button>
+        <button class='button primary' (click)='withdraw(50)'>
+            £50
+        </button>
+        <button class='button primary' (click)='withdraw(100)'>
+            £100
+        </button>
+    </div>
 </div>

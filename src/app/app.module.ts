@@ -6,21 +6,24 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers, reducerToken, reducerProvider } from './state';
+import { metaReducers, reducerToken, reducerProvider } from './state';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthEffects } from './state/auth';
+import { CashEffects } from './state/cash';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { KeypadComponent } from './home/keypad/keypad.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    KeypadComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { HeaderComponent } from './header/header.component';
         strictActionImmutability: true
       }
     }),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, CashEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
