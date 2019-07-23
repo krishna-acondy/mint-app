@@ -3,20 +3,22 @@
     <div class='pin-input' *ngIf='!(isLoggedIn$ | async)'>
         <div class='message'>
             <span *ngIf='!(hasFailedAuth$ | async)' >
-                Almost there! Enter your PIN to sign in.
+                Almost there! Key in your PIN to sign in.
             </span>
         </div>
         <input
+            disabled
             class='pin-textbox'
             [ngClass]='{"error": (hasFailedAuth$ | async)}'
             type='number'
-            (keyup)='onKeyUp($event)'
-            placeholder='Enter PIN'/>
-        <div class='message warn'>
-            <span *ngIf='hasFailedAuth$ | async'>
-                Oh no! 😱 That PIN was incorrect. Go on, give it another go!
-            </span>
-        </div>
-        <button class='button primary sign-in' (click)='onSignInClick()'>Sign in 🚀</button>
+            [value]='pin'
+            placeholder='PIN'/>
+            <div class='message warn'>
+                <span *ngIf='hasFailedAuth$ | async'>
+                    Oh no! 😱 That PIN was incorrect. Go on, give it another go!
+                </span>
+            </div>
+        <mnt-keypad (keyPress)='onKeyPressed($event)'></mnt-keypad>
+        <button class='button primary sign-in' (click)='onSignInClick()'>Sign in</button>
     </div>
 </ng-container>

@@ -1,9 +1,17 @@
 .keypad {
-  width: 20%;
+  width: 50%;
+  margin: auto;
   .row {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+
+    &.last {
+      justify-content: space-around;
+    }
+
+    button {
+      flex: 0.3;
+      margin: 0.2em;
+    }
   }
 }

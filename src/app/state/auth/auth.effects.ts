@@ -19,7 +19,7 @@ export class AuthEffects {
       return this.httpClient.post(`${state.config.apiUrl}/pin`, {pin: action.pin})
         .pipe(
           switchMap((response: any) => {
-            if (response.currentBalance) {
+            if (response.hasOwnProperty('currentBalance')) {
               this.router.navigateByUrl('/home');
               return [signIn(), updateBalance({amount: response.currentBalance})];
             } else {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../state';
 import { isLoggedIn, hasFailedAuth, authenticate, resetAuthState } from '../state/auth';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'mnt-sign-in',
@@ -10,7 +11,14 @@ import { isLoggedIn, hasFailedAuth, authenticate, resetAuthState } from '../stat
 })
 export class SignInComponent {
   isLoggedIn$ = this.store.pipe(select(isLoggedIn));
-  hasFailedAuth$ = this.store.pipe(select(hasFailedAuth));
+  hasFailedAuth$ = this.store.pipe(
+    select(hasFailedAuth),
+    tap(failed => {
+      if (failed) {
+        this.pin = null;
+      }
+    })
+    );
 
   pin: number;
 
@@ -23,8 +31,8 @@ export class SignInComponent {
     this.store.dispatch(authenticate({pin: this.pin}));
   }
 
-  onKeyUp(event: KeyboardEvent) {
-    this.pin = parseInt((event.target as HTMLInputElement).value, 10);
+  onKeyPressed(key: number) {
+    this.pin = parseInt(`${this.pin || ''}${key}`, 10);
   }
 
 }

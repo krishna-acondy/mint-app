@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Effect, ofType, Actions } from '@ngrx/effects';
-import { switchMap, map, withLatestFrom } from 'rxjs/operators';
-import { withdraw, updateBalance } from './cash.actions';
+import { switchMap, map, withLatestFrom, catchError } from 'rxjs/operators';
+import { withdraw, updateBalance, setErrorState } from './cash.actions';
 import { AppState } from '..';
 import { Store } from '@ngrx/store';
 @Injectable({
@@ -16,9 +16,8 @@ export class CashEffects {
     switchMap(([action, state]) => {
       return this.httpClient.post(`${state.config.apiUrl}/withdraw`, {amount: action.amount})
         .pipe(
-          map((response: any) => {
-            return updateBalance({ amount: response.currentBalance  });
-          })
+          map((response: any) => updateBalance({ amount: response.currentBalance  })),
+          catchError((e: any) => [setErrorState({error: e})])
         );
     }));
 

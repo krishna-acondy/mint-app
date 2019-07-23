@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { withdraw, updateBalance } from './cash.actions';
+import { withdraw, updateBalance, setErrorState } from './cash.actions';
 import { initialCashState } from './cash.state';
 import { CashLogic } from './cash.logic';
 
@@ -8,5 +8,9 @@ export const cashReducer = createReducer(
     on(
         updateBalance,
         (state, action) => CashLogic.updateBalance(state, action.amount)
-      )
+      ),
+    on(
+      setErrorState,
+      (state, action) => CashLogic.setErrorState(state, action.error)
+    )
 );

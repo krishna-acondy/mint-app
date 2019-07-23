@@ -7,3 +7,13 @@ export const currentBalance = createSelector(
   selectCashState,
   state => state.currentBalance
 );
+
+export const hasWithdrawalError = createSelector(
+  selectCashState,
+  state => state.hasErrored
+);
+
+export const withdrawalError = createSelector(
+  selectCashState,
+  state => state.error
+);

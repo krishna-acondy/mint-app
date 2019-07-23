@@ -9,3 +9,8 @@ export const updateBalance = createAction(
   '[Cash] Update Balance',
   props<{ amount: number }>()
 );
+
+export const setErrorState = createAction(
+  '[Cash] Set Error State',
+  props<{ error: any }>()
+);

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../state';
 import { signOut } from '../state/auth';
-import { currentBalance, withdraw } from '../state/cash';
+import { currentBalance, withdraw, withdrawalError, hasWithdrawalError } from '../state/cash';
 
 @Component({
   selector: 'mnt-home',
@@ -11,6 +11,8 @@ import { currentBalance, withdraw } from '../state/cash';
 })
 export class HomeComponent {
   currentBalance$ = this.store.pipe(select(currentBalance));
+  withdrawalError$ = this.store.pipe(select(withdrawalError));
+  hasWithdrawalError$ = this.store.pipe(select(hasWithdrawalError));
 
   constructor(
     private store: Store<AppState>

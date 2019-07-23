@@ -3,18 +3,30 @@
     <h1 class='title'>Welcome, Michael!</h1>
     You currently have <span class='amount'>{{ currentBalance$ | async | currency:'GBP' }}</span> in your account.
     <br/>
-    You are officially <span class='bold'>mint-ed</span>!
+    You are officially <span *ngIf='currentBalance$ | async; else broke'><span class='bold'>mint-ed</span>! 🤑</span>
+    <ng-template #broke>
+        <span>broke! 😔</span>
+    </ng-template>
     <br/><br/>
-    How much would you like to withdraw?
-    <div class='withdrawal'>
-        <button class='button primary' (click)='withdraw(20)'>
-            £20
-        </button>
-        <button class='button primary' (click)='withdraw(50)'>
-            £50
-        </button>
-        <button class='button primary' (click)='withdraw(100)'>
-            £100
-        </button>
+    <div *ngIf='(withdrawalError$ | async).statusCode !== 500; else insufficientFunds'>
+        <span *ngIf='currentBalance$ | async; else overdraft'>How much would you like to withdraw?</span>
+        <ng-template #overdraft>
+            <span>Would you like an overdraft?</span>
+        </ng-template>
+        <div class='withdrawal'>
+            <button class='button primary' (click)='withdraw(20)'>
+                £20
+            </button>
+            <button class='button primary' (click)='withdraw(50)'>
+                £50
+            </button>
+            <button class='button primary' (click)='withdraw(100)'>
+                £100
+            </button>
+        </div>
     </div>
+    <ng-template #insufficientFunds>
+        <span class='warn'>Oh no! This ATM has run out of funds. 💸
+        <br/>Please check back later or use one of our other ATMs.</span>
+    </ng-template>
 </div>
