@@ -7,7 +7,7 @@ export const cashReducer = createReducer(
     initialCashState,
     on(
         updateBalance,
-        (state, action) => CashLogic.updateBalance(state, action.amount)
+        (state, action) => CashLogic.updateBalance(state, action.balance, action.overdraft)
       ),
     on(
       setErrorState,

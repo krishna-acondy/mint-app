@@ -7,7 +7,7 @@ export const withdraw = createAction(
 
 export const updateBalance = createAction(
   '[Cash] Update Balance',
-  props<{ amount: number }>()
+  props<{ balance: number, overdraft: number }>()
 );
 
 export const setErrorState = createAction(

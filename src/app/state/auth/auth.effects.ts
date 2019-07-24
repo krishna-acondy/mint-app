@@ -21,7 +21,7 @@ export class AuthEffects {
           switchMap((response: any) => {
             if (response.hasOwnProperty('currentBalance')) {
               this.router.navigateByUrl('/home');
-              return [signIn(), updateBalance({amount: response.currentBalance})];
+              return [signIn(), updateBalance({balance: response.currentBalance, overdraft: response.overdraft})];
             } else {
               return [failAuthentication()];
             }

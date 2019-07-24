@@ -1,17 +1,26 @@
 .keypad {
+  * {
+    touch-action: manipulation;
+  }
   width: 50%;
   margin: auto;
   .row {
     display: flex;
+    width: 100%;
     justify-content: space-between;
 
-    &.last {
-      justify-content: space-around;
+    button {
+      width: 33%;
+      margin: 0.1em;
+      padding: 0;
     }
 
-    button {
-      flex: 0.3;
-      margin: 0.2em;
+    &.last {
+
+      button {
+        width: 33%;
+        margin: auto;
+      }
     }
   }
 }

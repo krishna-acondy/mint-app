@@ -7,26 +7,62 @@
     <ng-template #broke>
         <span>broke! 😔</span>
     </ng-template>
+    <ng-container *ngIf='overdraft$ | async as overdraft'>
+        You have an overdraft of {{overdraft | currency:'GBP'}}
+    </ng-container>
     <br/><br/>
-    <div *ngIf='(withdrawalError$ | async).statusCode !== 500; else insufficientFunds'>
-        <span *ngIf='currentBalance$ | async; else overdraft'>How much would you like to withdraw?</span>
-        <ng-template #overdraft>
-            <span>Would you like an overdraft?</span>
-        </ng-template>
-        <div class='withdrawal'>
-            <button class='button primary' (click)='withdraw(20)'>
-                £20
-            </button>
-            <button class='button primary' (click)='withdraw(50)'>
-                £50
-            </button>
-            <button class='button primary' (click)='withdraw(100)'>
-                £100
-            </button>
+    <div *ngIf='((withdrawalError$ | async).statusCode === 406 || (withdrawalError$ | async).statusCode === 200) && (overdraft$ | async) < 100; else error'>
+        <div *ngIf='(currentBalance$ | async) > 0; else overdraft'>
+            <span>How much would you like to withdraw?</span>
+            <ng-template [ngTemplateOutlet]='withdrawalControls'></ng-template>
         </div>
+        <ng-template #overdraft>
+            <span *ngIf='(overdraft$ | async) < 100'>Would you like an overdraft?</span>
+            <ng-template [ngTemplateOutlet]='withdrawalControls'></ng-template>
+        </ng-template>
     </div>
-    <ng-template #insufficientFunds>
-        <span class='warn'>Oh no! This ATM has run out of funds. 💸
-        <br/>Please check back later or use one of our other ATMs.</span>
+    <ng-template #error>
+        <ng-container *ngIf='(withdrawalError$ | async).statusCode === 500'>
+            <span class='warn'>
+                Oh no! This ATM has run out of funds. 💸
+                <br/>
+                Please check back later or use one of our other ATMs.
+            </span>
+        </ng-container>
+        <ng-container *ngIf='(withdrawalError$ | async).statusCode === 403 || (overdraft$ | async) >= 100'>
+            <span class='warn'>
+                Oh no! You have reached the maximum allowed overdraft. 💸
+                <br/>
+                Please transfer in some funds and try again.
+            </span>
+        </ng-container>
     </ng-template>
 </div>
+
+<ng-template #withdrawalControls>
+    <div class='withdrawal'>
+        <button class='button primary' (click)='withdraw(20)'>
+            £20
+        </button>
+        <button class='button primary' (click)='withdraw(50)'>
+            £50
+        </button>
+        <button class='button primary' (click)='withdraw(100)'>
+            £100
+        </button>
+        <br/><br/>
+        Or would you like to withdraw another amount?
+        <br/><br/>
+        <input class='textbox amount' type='number' placeholder='Enter amount' #amount/>
+        <br/><br/>
+        <button class='button primary' (click)='onWithdrawClicked(amount.value)'>Withdraw</button>
+        <br/><br/>
+        <ng-container *ngIf='(withdrawalError$ | async).statusCode === 406'>
+            <span class='warn'>
+                Oh no! That amount is invalid. 😬
+                <br/>
+                Please try again with multiples of 5, 10 or 20.
+            </span>
+        </ng-container>
+    </div>
+</ng-template>

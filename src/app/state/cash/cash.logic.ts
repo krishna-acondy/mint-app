@@ -3,9 +3,11 @@ import * as cloneDeep from 'lodash.clonedeep';
 import { HttpErrorResponse } from '@angular/common/http';
 
 export class CashLogic {
-  static updateBalance(state: CashState, amount: number): CashState {
+  static updateBalance(state: CashState, balance: number, overdraft: number): CashState {
     const newState = cloneDeep(state) as CashState;
-    newState.currentBalance = amount;
+    newState.currentBalance = balance;
+    newState.overdraft = overdraft;
+    newState.error = {message: '', statusCode: 200 };
 
     return newState;
   }

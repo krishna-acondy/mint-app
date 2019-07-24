@@ -45,3 +45,12 @@
     @include accent;
   }
 }
+
+.textbox {
+  padding: 0.5em;
+  border: none;
+  border-radius: 3px;
+  background-color: #ffffff;
+  opacity: 1;
+  @include background-text;
+}

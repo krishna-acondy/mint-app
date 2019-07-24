@@ -21,12 +21,8 @@
     flex-direction: column;
 
     .pin-textbox {
-      padding: 0.5em;
       margin: 0.5em 0;
       font-size: 2em;
-      border: none;
-      border-radius: 3px;
-      @include background-text;
 
       &.error {
         animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -43,6 +39,10 @@
       &.warn {
         height: 2em;
       }
+    }
+
+    .keypad {
+      margin: 1em;
     }
 
     .sign-in {

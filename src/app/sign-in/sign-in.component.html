@@ -8,7 +8,7 @@
         </div>
         <input
             disabled
-            class='pin-textbox'
+            class='textbox pin-textbox'
             [ngClass]='{"error": (hasFailedAuth$ | async)}'
             type='number'
             [value]='pin'
@@ -18,7 +18,7 @@
                     Oh no! 😱 That PIN was incorrect. Go on, give it another go!
                 </span>
             </div>
-        <mnt-keypad (keyPress)='onKeyPressed($event)'></mnt-keypad>
+        <mnt-keypad class='keypad' (keyPress)='onKeyPressed($event)'></mnt-keypad>
         <button class='button primary sign-in' (click)='onSignInClick()'>Sign in</button>
     </div>
 </ng-container>

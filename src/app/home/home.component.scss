@@ -1,6 +1,7 @@
 .main-content {
     font-size: 1.25em;
     margin: 0.75em;
+    text-align: center;
 
     .amount {
         font-size: 1.5em;
@@ -13,6 +14,10 @@
     .withdrawal {
         .button {
             margin: 0.1em;
+        }
+
+        .amount {
+            font-size: 1em;
         }
     }
 }

@@ -8,6 +8,11 @@ export const currentBalance = createSelector(
   state => state.currentBalance
 );
 
+export const overdraft = createSelector(
+  selectCashState,
+  state => state.overdraft
+);
+
 export const hasWithdrawalError = createSelector(
   selectCashState,
   state => state.hasErrored
