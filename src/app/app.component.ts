@@ -10,6 +10,6 @@ import { configure } from './state/config';
 })
 export class AppComponent {
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(configure({apiUrl: 'http://localhost:9999/api'}));
+    this.store.dispatch(configure({apiUrl: 'https://mnt-api.herokuapp.com/api'}));
   }
 }
