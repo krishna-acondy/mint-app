@@ -6,12 +6,11 @@ describe('Auth Logic', () => {
     it('should log in successfully', () => {
         const state = cloneDeep(initialAuthState);
 
-        const newState = AuthLogic.signIn(state, 300);
+        const newState = AuthLogic.signIn(state);
 
         expect(newState).not.toBe(state);
         expect(newState.isLoggedIn).toBeTruthy();
         expect(newState.hasFailedAuth).toBeFalsy();
-        expect(newState.currentBalance).toEqual(300);
     });
 
     it('should fail authentication', () => {
@@ -22,7 +21,6 @@ describe('Auth Logic', () => {
         expect(newState).not.toBe(state);
         expect(newState.isLoggedIn).toBeFalsy();
         expect(newState.hasFailedAuth).toBeTruthy();
-        expect(newState.currentBalance).toEqual(0);
     });
 
     it('should reset auth state', () => {
@@ -30,6 +28,5 @@ describe('Auth Logic', () => {
 
         expect(newState.isLoggedIn).toBeFalsy();
         expect(newState.hasFailedAuth).toBeFalsy();
-        expect(newState.currentBalance).toEqual(0);
     });
 });

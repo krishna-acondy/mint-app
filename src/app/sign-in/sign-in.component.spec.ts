@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { SignInComponent } from './sign-in.component';
 import { initialAuthState } from '../state/auth';
 import { AppState } from '../state';
+import { KeypadComponent } from '../home/keypad/keypad.component';
 
 describe('SignInComponent', () => {
   let component: SignInComponent;
@@ -12,7 +13,7 @@ describe('SignInComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SignInComponent ],
+      declarations: [ SignInComponent, KeypadComponent ],
       providers: [
         provideMockStore({ initialState: { auth: initialAuthState } })
       ]
@@ -29,18 +30,6 @@ describe('SignInComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should set the PIN on key up', () => {
-    const event = {
-      target: {
-        value: '5555'
-      }
-    };
-
-    component.onKeyUp(event as unknown as KeyboardEvent);
-
-    expect(component.pin).toEqual(5555);
   });
 
   it('should reset auth state and authenticate when the sign in button is clicked', () => {

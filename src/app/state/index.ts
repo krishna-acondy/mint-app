@@ -2,17 +2,23 @@ import {
   ActionReducerMap,
   MetaReducer
 } from '@ngrx/store';
-import { AuthState } from './auth';
+import { AuthState, initialAuthState } from './auth';
 import { authReducer } from './auth/auth.reducer';
 import { InjectionToken } from '@angular/core';
 import { configReducer } from './config/config.reducer';
-import { CashState, cashReducer } from './cash';
+import { CashState, cashReducer, initialCashState } from './cash';
 
 export interface AppState {
   config: { apiUrl: string };
   auth: AuthState;
   cash: CashState;
 }
+
+export const initialAppState: AppState = {
+  config: { apiUrl: ''},
+  auth: initialAuthState,
+  cash: initialCashState
+};
 
 export const reducers: ActionReducerMap<AppState> = {
   config: configReducer,
