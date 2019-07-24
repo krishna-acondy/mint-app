@@ -9,8 +9,9 @@ This app uses CSS media queries to provide a responsive UI for mobile and deskto
 Since it has been built as a PWA, you can add it to the home screen on your Android or iOS device and use it like any other app.
 
 # Next Steps - Product Roadmap
-* Add support for i18n
 * Extend test suite and add a set of end-to-end tests
+* Add support for i18n
+* Improve authentication mechanism using localStorage to store and retrieve token
 * Better use of motion design and animations to convey meaning
 
 ## Development server
