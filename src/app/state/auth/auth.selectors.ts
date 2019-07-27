@@ -3,9 +3,9 @@ import { AppState } from '..';
 
 const selectAuthState = (state: AppState) => state.auth;
 
-export const isLoggedIn = createSelector(
+export const isSignedIn = createSelector(
   selectAuthState,
-  state => state.isLoggedIn
+  state => state.isSignedIn
 );
 
 export const hasFailedAuth = createSelector(

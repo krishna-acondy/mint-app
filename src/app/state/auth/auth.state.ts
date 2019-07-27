@@ -1,9 +1,9 @@
 export interface AuthState {
-  isLoggedIn: boolean;
+  isSignedIn: boolean;
   hasFailedAuth: boolean;
 }
 
 export const initialAuthState: AuthState = {
-  isLoggedIn: false,
+  isSignedIn: false,
   hasFailedAuth: false
 };

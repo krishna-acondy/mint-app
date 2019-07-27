@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../state';
-import { isLoggedIn, hasFailedAuth, authenticate, resetAuthState } from '../state/auth';
+import { isSignedIn, hasFailedAuth, authenticate, resetAuthState } from '../state/auth';
 import { tap } from 'rxjs/operators';
 
 @Component({
@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent {
-  isLoggedIn$ = this.store.pipe(select(isLoggedIn));
+  isSignedIn$ = this.store.pipe(select(isSignedIn));
   hasFailedAuth$ = this.store.pipe(
     select(hasFailedAuth),
     tap(failed => {

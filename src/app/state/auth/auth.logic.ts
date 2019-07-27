@@ -4,7 +4,7 @@ import * as cloneDeep from 'lodash.clonedeep';
 export class AuthLogic {
   static signIn(state: AuthState) {
     const newState = cloneDeep(state) as AuthState;
-    newState.isLoggedIn = true;
+    newState.isSignedIn = true;
     newState.hasFailedAuth = false;
 
     return newState;
@@ -16,7 +16,7 @@ export class AuthLogic {
 
   static failAuthentication(state: AuthState) {
     const newState = cloneDeep(state) as AuthState;
-    newState.isLoggedIn = false;
+    newState.isSignedIn = false;
     newState.hasFailedAuth = true;
 
     return newState;

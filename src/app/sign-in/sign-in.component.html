@@ -1,6 +1,6 @@
 <div class='logo'></div>
 <ng-container >
-    <div class='pin-input' *ngIf='!(isLoggedIn$ | async)'>
+    <div class='pin-input' *ngIf='!(isSignedIn$ | async)'>
         <div class='message'>
             <span *ngIf='!(hasFailedAuth$ | async)' >
                 Almost there! Key in your PIN to sign in.

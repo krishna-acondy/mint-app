@@ -22,4 +22,13 @@ describe('KeypadComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit the value when a key is pressed', () => {
+    const spy = spyOn(component.keyPress, 'emit');
+
+    component.onKeyPressed(2);
+
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledWith(2);
+  });
 });
