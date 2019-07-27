@@ -32,3 +32,8 @@ export const invalidAmount = createSelector(
   selectCashState,
   state => state.error.statusCode === 406
 );
+
+export const lastWithdrawal = createSelector(
+  selectCashState,
+  state => state.lastWithdrawal
+);

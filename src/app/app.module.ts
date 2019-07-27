@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { KeypadComponent } from './keypad/keypad.component';
+import { LastWithdrawalComponent } from './home/last-withdrawal/last-withdrawal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { KeypadComponent } from './keypad/keypad.component';
     SignInComponent,
     HomeComponent,
     HeaderComponent,
-    KeypadComponent
+    KeypadComponent,
+    LastWithdrawalComponent
   ],
   imports: [
     BrowserModule,

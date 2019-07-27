@@ -24,22 +24,21 @@
             <ng-template [ngTemplateOutlet]='withdrawalControls'></ng-template>
         </ng-template>
     </div>
-    <div *ngIf='hasWithdrawalError$ | async'>
-        <ng-container *ngIf='insufficientAtmFunds$ | async'>
-            <span class='warn'>
-                Oh no! This ATM has run out of funds. 💸
-                <br/>
-                Please check back later or use one of our other ATMs.
-            </span>
-        </ng-container>
-        <ng-container *ngIf='insufficientUserFunds$ | async'>
-            <span class='warn'>
-                Oh no! You have reached the maximum allowed overdraft. 💸
-                <br/>
-                Please transfer in some funds and try again.
-            </span>
-        </ng-container>
-    </div>
+    <ng-container *ngIf='insufficientAtmFunds$ | async'>
+        <span class='warn'>
+            Oh no! This ATM has run out of funds. 💸
+            <br/>
+            Please check back later or use one of our other ATMs.
+        </span>
+    </ng-container>
+    <ng-container *ngIf='insufficientUserFunds$ | async'>
+        <span class='warn'>
+            Oh no! You have reached the maximum allowed overdraft. 💸
+            <br/>
+            Please transfer in some funds and try again.
+        </span>
+    </ng-container>
+    <mnt-last-withdrawal [withdrawal]='lastWithdrawal$ | async'></mnt-last-withdrawal>
 </div>
 
 <ng-template #withdrawalControls>

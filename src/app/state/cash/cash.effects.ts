@@ -16,7 +16,14 @@ export class CashEffects {
     switchMap(([action, state]) => {
       return this.httpClient.post(`${state.config.apiUrl}/withdraw`, {amount: action.amount})
         .pipe(
-          map((response: any) => updateBalance({ balance: response.currentBalance, overdraft: response.overdraft })),
+          map((response: any) => updateBalance({
+            balance: response.currentBalance,
+            overdraft: response.overdraft,
+            lastWithdrawal: {
+              amount: action.amount,
+              noteMix: response.noteMix
+            }
+          })),
           catchError((e: any) => [setErrorState({error: e})])
         );
     }));

@@ -8,6 +8,7 @@ import {
   insufficientAtmFunds,
   insufficientUserFunds,
   invalidAmount,
+  lastWithdrawal,
   overdraft,
   withdraw
 } from '../state/cash';
@@ -24,6 +25,7 @@ export class HomeComponent {
   insufficientAtmFunds$ = this.store.pipe(select(insufficientAtmFunds));
   insufficientUserFunds$ = this.store.pipe(select(insufficientUserFunds));
   invalidAmount$ = this.store.pipe(select(invalidAmount));
+  lastWithdrawal$ = this.store.pipe(select(lastWithdrawal));
 
   @ViewChild('amount', {static: false}) amountTextbox: ElementRef;
 
