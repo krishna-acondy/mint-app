@@ -5,6 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { initialAppState, AppState } from '../state';
 import { Store } from '@ngrx/store';
+import { LastWithdrawalComponent } from './last-withdrawal/last-withdrawal.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -13,7 +14,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent, HeaderComponent ],
+      declarations: [ HomeComponent, HeaderComponent, LastWithdrawalComponent ],
       providers: [provideMockStore({ initialState: initialAppState})]
     })
     .compileComponents();
