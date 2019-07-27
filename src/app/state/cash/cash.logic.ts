@@ -12,10 +12,10 @@ export class CashLogic {
     return newState;
   }
 
-  static setErrorState(state: CashState, error: HttpErrorResponse): CashState {
+  static setErrorState(state: CashState, errorResponse: HttpErrorResponse): CashState {
     const newState = cloneDeep(state) as CashState;
-    newState.error.message = error.error.error;
-    newState.error.statusCode = error.status;
+    newState.error.message = errorResponse.error.error;
+    newState.error.statusCode = errorResponse.status;
     newState.hasErrored = true;
 
     return newState;
