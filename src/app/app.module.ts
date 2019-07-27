@@ -15,7 +15,7 @@ import { CashEffects } from './state/cash';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { KeypadComponent } from './home/keypad/keypad.component';
+import { KeypadComponent } from './keypad/keypad.component';
 
 @NgModule({
   declarations: [

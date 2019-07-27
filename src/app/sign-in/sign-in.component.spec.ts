@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { SignInComponent } from './sign-in.component';
 import { initialAuthState } from '../state/auth';
 import { AppState } from '../state';
-import { KeypadComponent } from '../home/keypad/keypad.component';
+import { KeypadComponent } from '../keypad/keypad.component';
 
 describe('SignInComponent', () => {
   let component: SignInComponent;
