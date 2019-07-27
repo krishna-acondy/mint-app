@@ -51,4 +51,20 @@ describe('SignInComponent', () => {
       }
     );
   });
+
+  it('should add digit to the current pin when a key is pressed on the keypad', () => {
+    component.pin = 1;
+
+    component.onKeyPressed(3);
+
+    expect(component.pin).toEqual(13);
+  });
+
+  it('should add the first digit to the pin when a key is pressed on the keypad', () => {
+    component.pin = null;
+
+    component.onKeyPressed(3);
+
+    expect(component.pin).toEqual(3);
+  });
 });

@@ -22,4 +22,12 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit an event when Sign Out is clicked', () => {
+   const spy = spyOn(component.signOut, 'emit');
+
+   component.onSignOut();
+
+   expect(spy).toHaveBeenCalledTimes(1);
+  });
 });
