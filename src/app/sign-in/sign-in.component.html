@@ -7,7 +7,7 @@
             </span>
         </div>
         <input
-            disabled
+            readonly='true'
             class='textbox pin-textbox'
             [ngClass]='{"error": (hasFailedAuth$ | async)}'
             type='number'
