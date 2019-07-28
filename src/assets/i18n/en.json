@@ -1,1 +1,7 @@
-{}
+{
+    "signIn": {
+        "enterPin": "Almost there! Key in your PIN to sign in.",
+        "incorrectPin": "Oh no! 😱 That PIN was incorrect. Go on, give it another go!",
+        "signIn": "Sign in"
+    }
+}
