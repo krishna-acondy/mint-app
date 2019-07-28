@@ -11,6 +11,10 @@ export const updateBalance = createAction(
   props<{ balance: number, overdraft: number, lastWithdrawal: Withdrawal }>()
 );
 
+export const refreshBalance = createAction(
+  '[Cash] Refresh Balance'
+);
+
 export const setErrorState = createAction(
   '[Cash] Set Error State',
   props<{ error: any }>()

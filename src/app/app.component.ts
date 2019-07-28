@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './state';
 import { configure } from './state/config';
 import { HttpClient } from '@angular/common/http';
+import { refreshBalance } from './state/cash';
 
 @Component({
   selector: 'mnt-root',
@@ -15,6 +16,7 @@ export class AppComponent {
     private store: Store<AppState>) {
       this.httpClient.get('assets/config.json').subscribe((config: any) => {
       this.store.dispatch(configure({apiUrl: config.apiUrl}));
+      this.store.dispatch(refreshBalance());
       });
   }
 }

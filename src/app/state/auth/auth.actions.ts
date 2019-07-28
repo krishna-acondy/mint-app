@@ -10,7 +10,8 @@ export const resetAuthState = createAction(
 );
 
 export const signIn = createAction(
-  '[Auth] Sign In'
+  '[Auth] Sign In',
+  props<{name: string}>()
 );
 
 export const signOut = createAction(

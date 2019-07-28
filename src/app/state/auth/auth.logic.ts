@@ -2,10 +2,12 @@ import { AuthState, initialAuthState } from './auth.state';
 import * as cloneDeep from 'lodash.clonedeep';
 
 export class AuthLogic {
-  static signIn(state: AuthState) {
+  static signIn(state: AuthState, name: string) {
     const newState = cloneDeep(state) as AuthState;
     newState.isSignedIn = true;
     newState.hasFailedAuth = false;
+
+    localStorage.setItem('signedInUser', name);
 
     return newState;
   }
@@ -23,6 +25,8 @@ export class AuthLogic {
   }
 
   static resetAuthState() {
+    localStorage.clear();
+
     const newState = cloneDeep(initialAuthState) as AuthState;
 
     return newState;

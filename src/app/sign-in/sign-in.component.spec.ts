@@ -6,6 +6,7 @@ import { SignInComponent } from './sign-in.component';
 import { initialAuthState } from '../state/auth';
 import { AppState } from '../state';
 import { KeypadComponent } from '../keypad/keypad.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SignInComponent', () => {
   let component: SignInComponent;
@@ -15,7 +16,7 @@ describe('SignInComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SignInComponent, KeypadComponent ],
-      imports: [ I18NTestModule ],
+      imports: [ I18NTestModule, RouterTestingModule ],
       providers: [
         provideMockStore({ initialState: { auth: initialAuthState } })
       ]

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Effect, ofType, Actions } from '@ngrx/effects';
-import { switchMap, map, catchError, withLatestFrom } from 'rxjs/operators';
+import { switchMap, catchError, withLatestFrom } from 'rxjs/operators';
 import { authenticate, signIn, failAuthentication, signOut } from './auth.actions';
 import { Router } from '@angular/router';
 import { AppState } from '..';
 import { Store } from '@ngrx/store';
-import { updateBalance } from '../cash';
+import { updateBalance, refreshBalance } from '../cash';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +21,7 @@ export class AuthEffects {
           switchMap((response: any) => {
             if (response.hasOwnProperty('currentBalance')) {
               this.router.navigateByUrl('/home');
-              return [signIn(), updateBalance({
+              return [signIn(response.name), updateBalance({
                 balance: response.currentBalance,
                 overdraft: response.overdraft,
                 lastWithdrawal: null
@@ -40,6 +40,24 @@ export class AuthEffects {
       switchMap(() => {
         this.router.navigateByUrl('/sign-in');
         return [];
+      })
+    );
+
+    @Effect()
+    updateBalance$ = this.actions$.pipe(
+      ofType(refreshBalance),
+      withLatestFrom(this.store),
+      switchMap(([_, state]) => {
+        return this.httpClient.get(`${state.config.apiUrl}/balance`)
+          .pipe(
+            switchMap((response: any) => {
+              return [updateBalance({
+                balance: response.currentBalance,
+                overdraft: response.overdraft,
+                lastWithdrawal: null
+              })];
+            })
+          );
       })
     );
 

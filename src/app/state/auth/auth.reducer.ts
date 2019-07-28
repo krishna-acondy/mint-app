@@ -7,7 +7,7 @@ export const authReducer = createReducer(
   initialAuthState,
   on(
     signIn,
-    (state) => AuthLogic.signIn(state)
+    (state, action) => AuthLogic.signIn(state, action.name)
   ),
   on(
     signOut,
