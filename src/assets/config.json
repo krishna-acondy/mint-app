@@ -1,3 +1,4 @@
 {
-    "apiUrl": "https://mnt-api.herokuapp.com/api"
+    "apiUrl": "https://mnt-api.herokuapp.com/api",
+    "language": "en"
 }

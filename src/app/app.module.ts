@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { KeypadComponent } from './keypad/keypad.component';
 import { LastWithdrawalComponent } from './home/last-withdrawal/last-withdrawal.component';
+import { I18NModule } from './i18n/i18n.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { LastWithdrawalComponent } from './home/last-withdrawal/last-withdrawal.
       }
     }),
     EffectsModule.forRoot([AuthEffects, CashEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    I18NModule
   ],
   providers: [
     reducerProvider
