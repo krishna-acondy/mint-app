@@ -6,5 +6,31 @@
     },
     "header": {
         "signOut": "Sign out"
+    },
+    "home": {
+        "greeting": "Welcome",
+        "currentBalance": "Your current balance is",
+        "youAre": "You are officially",
+        "minted": "mint-ed",
+        "broke": "broke",
+        "currentOverdraft": "You have an overdraft of",
+        "howMuch": "How much would you like to withdraw?",
+        "overdraft": "Would you like an overdraft?",
+        "otherAmount": "Or would you like to withdraw another amount?",
+        "withdraw": "Withdraw",
+        "errors": {
+            "insufficientAtmFunds": {
+                "message": "Oh no! This ATM has run out of funds.",
+                "action": "Please check back later or use one of our other ATMs."
+            },
+            "insufficientUserFunds": {
+                "message": "Oh no! You have reached the maximum allowed overdraft.",
+                "action": "Please transfer in some funds and try again."
+            },
+            "invalidAmount": {
+                "message": "Oh no! That amount is invalid.",
+                "action": "Please try again with multiples of 5, 10 or 20."
+            }
+        }
     }
 }

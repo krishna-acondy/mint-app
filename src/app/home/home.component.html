@@ -1,41 +1,41 @@
 <mnt-header (signOut)='onSignOut()'></mnt-header>
 <div class='main-content'>
-    <h1 class='title'>Welcome, Michael!</h1>
-    You currently have <span class='amount'>{{ currentBalance$ | async | currency:'GBP' }}</span> in your account.
+    <h1 class='title'>{{ 'home.greeting' | translate }}, Michael!</h1>
+    {{ 'home.currentBalance' | translate }}<span class='amount'> {{ currentBalance$ | async | currency:'GBP' }}</span>.
     <br/>
-    You are officially
+    {{ 'home.youAre' | translate }}
     <span *ngIf='currentBalance$ | async; else broke'>
-        <span class='bold'> mint-ed</span>! 🤑
+        <span class='bold'> {{ 'home.minted' | translate }}</span>! 🤑
     </span>
     <ng-template #broke>
-        <span>broke! 😔</span>
+        <span>{{ 'home.broke' | translate }}! 😔</span>
     </ng-template>
     <ng-container *ngIf='overdraft$ | async as overdraft'>
-        You have an overdraft of {{overdraft | currency:'GBP'}}
+        {{ 'home.currentOverdraft' | translate }} {{overdraft | currency:'GBP'}}
     </ng-container>
     <br/><br/>
     <div *ngIf='(overdraft$ | async) < 100 && !(insufficientAtmFunds$ | async)'>
         <div *ngIf='(currentBalance$ | async) > 0; else overdraft'>
-            <span>How much would you like to withdraw?</span>
+            <span>{{ 'home.howMuch' | translate }}</span>
             <ng-template [ngTemplateOutlet]='withdrawalControls'></ng-template>
         </div>
         <ng-template #overdraft>
-            <span *ngIf='(overdraft$ | async) < 100'>Would you like an overdraft?</span>
+            <span *ngIf='(overdraft$ | async) < 100'>{{ 'home.overdraft' | translate }}</span>
             <ng-template [ngTemplateOutlet]='withdrawalControls'></ng-template>
         </ng-template>
     </div>
     <ng-container *ngIf='insufficientAtmFunds$ | async'>
         <span class='warn'>
-            Oh no! This ATM has run out of funds. 💸
+            {{ 'home.errors.insufficientAtmFunds.message' | translate }} 💸
             <br/>
-            Please check back later or use one of our other ATMs.
+            {{ 'home.errors.insufficientAtmFunds.action' | translate }}
         </span>
     </ng-container>
     <ng-container *ngIf='insufficientUserFunds$ | async'>
         <span class='warn'>
-            Oh no! You have reached the maximum allowed overdraft. 💸
+                {{ 'home.errors.insufficientUserFunds.message' | translate }} 💸
             <br/>
-            Please transfer in some funds and try again.
+            {{ 'home.errors.insufficientUserFunds.action' | translate }}
         </span>
     </ng-container>
     <mnt-last-withdrawal [withdrawal]='lastWithdrawal$ | async'></mnt-last-withdrawal>
@@ -53,17 +53,17 @@
             £100
         </button>
         <br/><br/>
-        Or would you like to withdraw another amount?
+        {{ 'home.otherAmount' | translate }}
         <br/><br/>
         <input class='textbox amount' type='number' placeholder='Enter amount' #amount/>
         <br/><br/>
-        <button class='button primary' (click)='onWithdrawClicked(amount.value)'>Withdraw</button>
+        <button class='button primary' (click)='onWithdrawClicked(amount.value)'>{{ 'home.withdraw' | translate }}</button>
         <br/><br/>
         <ng-container *ngIf='invalidAmount$ | async'>
             <span class='warn'>
-                Oh no! That amount is invalid. 😬
+                    {{ 'home.errors.invalidAmount.message' | translate }} 😬
                 <br/>
-                Please try again with multiples of 5, 10 or 20.
+                {{ 'home.errors.invalidAmount.action' | translate }}
             </span>
         </ng-container>
     </div>

@@ -21,7 +21,6 @@ import {
 export class HomeComponent {
   currentBalance$ = this.store.pipe(select(currentBalance));
   overdraft$ = this.store.pipe(select(overdraft));
-  hasWithdrawalError$ = this.store.pipe(select(hasWithdrawalError));
   insufficientAtmFunds$ = this.store.pipe(select(insufficientAtmFunds));
   insufficientUserFunds$ = this.store.pipe(select(insufficientUserFunds));
   invalidAmount$ = this.store.pipe(select(invalidAmount));
