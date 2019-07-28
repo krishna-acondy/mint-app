@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { I18NTestModule } from '../i18n/i18n-testing.module';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../header/header.component';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
@@ -15,6 +15,7 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent, HeaderComponent, LastWithdrawalComponent ],
+      imports: [ I18NTestModule ],
       providers: [provideMockStore({ initialState: initialAppState})]
     })
     .compileComponents();

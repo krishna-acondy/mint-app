@@ -5,11 +5,8 @@ import { Withdrawal } from '../../model/withdrawal';
   templateUrl: './last-withdrawal.component.html',
   styleUrls: ['./last-withdrawal.component.scss']
 })
-export class LastWithdrawalComponent implements OnInit {
+export class LastWithdrawalComponent {
 
   @Input() withdrawal: Withdrawal;
-
-  ngOnInit() {
-  }
 
 }

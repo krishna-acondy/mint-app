@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { I18NTestModule } from '../../i18n/i18n-testing.module';
 import { LastWithdrawalComponent } from './last-withdrawal.component';
 
 describe('LastWithdrawalComponent', () => {
@@ -8,7 +8,8 @@ describe('LastWithdrawalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LastWithdrawalComponent ]
+      declarations: [ LastWithdrawalComponent ],
+      imports: [ I18NTestModule ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { Store } from '@ngrx/store';
+import { I18NTestModule } from '../i18n/i18n-testing.module';
 import { SignInComponent } from './sign-in.component';
 import { initialAuthState } from '../state/auth';
 import { AppState } from '../state';
@@ -14,6 +15,7 @@ describe('SignInComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SignInComponent, KeypadComponent ],
+      imports: [ I18NTestModule ],
       providers: [
         provideMockStore({ initialState: { auth: initialAuthState } })
       ]
