@@ -8,11 +8,22 @@ This app uses CSS media queries to provide a responsive UI for mobile and deskto
 
 Since it has been built as a PWA, you can add it to the home screen on your Android or iOS device and use it like any other app.
 
-# Next Steps - Product Roadmap
-* Extend test suite and add a set of end-to-end tests
-* Add support for i18n
-* Improve authentication mechanism using localStorage to store and retrieve token
-* Better use of motion design and animations to convey meaning
+## Current Features
+* Sign in/sign out and authentication via Mint API.
+* Client-side storage of authentication state,
+  enabling persistence between page refreshes.
+* Withdrawal of preset amounts - £20, £50 and £100,
+  and custom amounts in multiples of £5, £10 and £20.
+* Display of current balance.
+* Display of current overdraft, with support for upto £100.
+* i18n - multi-language support.
+
+## Next Steps - Product Roadmap
+* PIN change functionality.
+* Extend end-to-end test suite.
+* More extensive testing across devices and resolutions.
+* Improvement of layouts to optimise screen space usage.
+* Better use of motion design and animations to convey meaning.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
