@@ -1,8 +1,8 @@
 <div class='logo'></div>
 <ng-container >
-    <div class='pin-input' *ngIf='!(isSignedIn$ | async)'>
+    <div class='pin-input' *ngIf='(isSignedIn$ | async) === false'>
         <div class='message'>
-            <span *ngIf='!(hasFailedAuth$ | async)' >
+            <span *ngIf='(hasFailedAuth$ | async) === false' >
                 {{ 'signIn.enterPin' | translate }}
             </span>
         </div>

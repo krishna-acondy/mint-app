@@ -14,7 +14,7 @@
         {{ 'home.currentOverdraft' | translate }} {{overdraft | currency:'GBP'}}
     </ng-container>
     <br/><br/>
-    <div *ngIf='(overdraft$ | async) < 100 && !(insufficientAtmFunds$ | async)'>
+    <div *ngIf='(overdraft$ | async) < 100 && (insufficientAtmFunds$ | async) === false'>
         <div *ngIf='(currentBalance$ | async) > 0; else overdraft'>
             <span>{{ 'home.howMuch' | translate }}</span>
             <ng-template [ngTemplateOutlet]='withdrawalControls'></ng-template>
