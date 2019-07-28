@@ -1,6 +1,6 @@
 <ng-container *ngIf='withdrawal'>
-    <h3>Your last successful withdrawal was {{withdrawal.amount | currency:'GBP'}}</h3>
-    Here's what you got:
+    <h3>{{ 'lastWithdrawal.lastWithdrawal' | translate }} {{withdrawal.amount | currency:'GBP'}}</h3>
+    {{ 'lastWithdrawal.whatYouGot' | translate }}:
     <br/><br/>
     <span *ngFor='let denomination of withdrawal.noteMix'>
         <ng-container *ngIf='denomination.quantity'>

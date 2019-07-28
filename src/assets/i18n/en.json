@@ -32,5 +32,9 @@
                 "action": "Please try again with multiples of 5, 10 or 20."
             }
         }
+    },
+    "lastWithdrawal": {
+        "lastWithdrawal": "Your last successful withdrawal was",
+        "whatYouGot": "Here's what you got"
     }
 }
