@@ -1,0 +1,40 @@
+{
+    "signIn": {
+        "enterPin": "Je bent er bijna! Toets uw pincode in om in te loggen.",
+        "incorrectPin": "Oh nee! 😱 Die pincode was niet correct. Ga door, probeer het nog een keer!",
+        "signIn": "Inloggen"
+    },
+    "header": {
+        "signOut": "Uitloggen"
+    },
+    "home": {
+        "greeting": "Welkom",
+        "currentBalance": "Uw huidige saldo is",
+        "youAre": "Je bent officieel",
+        "minted": "mint-ed",
+        "broke": "geldeloos",
+        "currentOverdraft": "U heeft een rood staan van",
+        "howMuch": "Hoeveel wilt u opnemen?",
+        "overdraft": "Wilt u een rood staan?",
+        "otherAmount": "Of wil je een andere bedrag opnemen?",
+        "withdraw": "Geld opnemen",
+        "errors": {
+            "insufficientAtmFunds": {
+                "message": "Oh nee! Deze geldautomaat heeft geen geld meer.",
+                "action": "Kom later terug of gebruik een van onze andere geldautomaten."
+            },
+            "insufficientUserFunds": {
+                "message": "Oh nee! U heeft de maximaal toegestane roodstand bereikt.",
+                "action": "Maak een bedrag over en probeer het opnieuw."
+            },
+            "invalidAmount": {
+                "message": "Oh nee! Dat bedrag is ongeldig.",
+                "action": "Probeer het opnieuw met veelvouden van 5, 10 of 20."
+            }
+        }
+    },
+    "lastWithdrawal": {
+        "lastWithdrawal": "Uw laatste succesvolle opname was",
+        "whatYouGot": "Dit is wat je had"
+    }
+}

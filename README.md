@@ -8,6 +8,8 @@ This app uses CSS media queries to provide a responsive UI for mobile and deskto
 
 Since it has been built as a PWA, you can add it to the home screen on your Android or iOS device and use it like any other app.
 
+The app currently supports three languages - English, Dutch and French. The language in use can be changed at anytime, pre- or post-deployment, via the `config.json` file, located in the assets folder.
+
 ## Current Features
 * Sign in/sign out and authentication via Mint API.
 * Client-side storage of authentication state,

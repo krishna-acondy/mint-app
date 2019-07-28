@@ -1,0 +1,40 @@
+{
+    "signIn": {
+        "enterPin": "Presque là! Saisissez votre code PIN pour vous connecter.",
+        "incorrectPin": "Hélas! 😱 Ce code PIN était faux. Allez-y, essayez-le encore une fois!",
+        "signIn": "Se connecter"
+    },
+    "header": {
+        "signOut": "Se deconnecter"
+    },
+    "home": {
+        "greeting": "Bienvenue",
+        "currentBalance": "Votre solde actuel est",
+        "youAre": "Vous êtes officiellement",
+        "minted": "mint-ed",
+        "broke": "fauché",
+        "currentOverdraft": "Vous avez un découvert de",
+        "howMuch": "Combien aimeriez-vous retirer?",
+        "overdraft": "Voulez-vous un découvert?",
+        "otherAmount": "Ou souhaitez-vous retirer un autre montant?",
+        "withdraw": "Retirer",
+        "errors": {
+            "insufficientAtmFunds": {
+                "message": "Hélas! Ce ATM est à court d'argent.",
+                "action": "Revenez plus tard ou utilisez l'une de nos autres machines."
+            },
+            "insufficientUserFunds": {
+                "message": "Hélas! Vous avez atteint le découvert maximum autorisé.",
+                "action": "Veuillez transférer des fonds et réessayer."
+            },
+            "invalidAmount": {
+                "message": "Hélas! Ce montant est invalide.",
+                "action": "Veuillez réessayer avec des multiples de 5, 10 ou 20."
+            }
+        }
+    },
+    "lastWithdrawal": {
+        "lastWithdrawal": "Votre dernier retrait réussi a été",
+        "whatYouGot": "Voici ce que tu as"
+    }
+}
